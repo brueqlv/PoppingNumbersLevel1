@@ -21,7 +21,7 @@
             }
         }
 
-        public static int GetValidUserInputWithMessage(string message, int max)
+        public static int GetValidUserInputNumber(string message, int max)
         {
             while (true)
             {

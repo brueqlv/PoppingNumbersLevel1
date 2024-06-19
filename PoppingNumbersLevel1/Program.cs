@@ -18,8 +18,8 @@ namespace PoppingNumbersLevel1
                 gameService.PrintBoard();
 
                 var number = UserInputHelper.GetValidUserInputNumber(gameNumbers.From, gameNumbers.To);
-                var row = UserInputHelper.GetValidUserInputWithMessage("row", gameBoard.Height);
-                var col = UserInputHelper.GetValidUserInputWithMessage("col", gameBoard.Width);
+                var row = UserInputHelper.GetValidUserInputNumber("row", gameBoard.Height);
+                var col = UserInputHelper.GetValidUserInputNumber("col", gameBoard.Width);
 
                 gameService.PlayerTurn(number, row, col);
 
