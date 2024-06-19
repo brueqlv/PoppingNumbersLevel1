@@ -23,16 +23,6 @@ namespace PoppingNumbersLevel1Tests
         }
 
         [Test]
-        public void PlayerTurn_ShouldPlaceNumberOnBoard()
-        {
-            //Act
-            _gameService.PlayerTurn(2,1,1);
-
-            //Assert
-            Assert.That(_gameBoard.Board[0, 0], Is.EqualTo(2));
-        }
-
-        [Test]
         public void ComputerTurn_ShouldPlaceThreeRandomNumbers()
         {
             //Arrange & Act

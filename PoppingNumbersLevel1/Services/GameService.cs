@@ -1,4 +1,5 @@
-﻿using PoppingNumbersLevel1.Models;
+﻿using PoppingNumbersLevel1.Helpers;
+using PoppingNumbersLevel1.Models;
 
 namespace PoppingNumbersLevel1.Services
 {
@@ -28,10 +29,13 @@ namespace PoppingNumbersLevel1.Services
             }
         }
 
-        public void PlayerTurn(int number, int row, int col)
+        public void PlayerTurn()
         {
             while (true)
             {
+                var number = UserInputHelper.GetValidUserInputNumber(NumberFrom, NumberTo);
+                var row = UserInputHelper.GetValidUserInputNumber("row", gameBoard.Height);
+                var col = UserInputHelper.GetValidUserInputNumber("col", gameBoard.Width);
 
                 if (gameBoard.Board[row - 1, col - 1] == 0)
                 {
@@ -46,7 +50,7 @@ namespace PoppingNumbersLevel1.Services
         public void ComputerTurn()
         {
             var numbersPlaced = 0;
-            while (numbersPlaced < 3)
+            while (numbersPlaced < 3 || IsGameOver())
             {
                 var row = _gameRandom.Next(gameBoard.Height);
                 var col = _gameRandom.Next(gameBoard.Width);
@@ -71,9 +75,6 @@ namespace PoppingNumbersLevel1.Services
                     }
                 }
             }
-
-            Console.WriteLine("Game Over! No more spaces left.");
-            Console.ReadLine();
 
             return true;
         }
